@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
 /* ===MIXINS=== */
 @mixin roboto {
@@ -28,6 +28,7 @@ $cyan: #007188;
 
 $transition: 0.15s all ease;
 
+
 /* === /VARIABLES=== */
 
 /* === COMMON === */
@@ -49,13 +50,22 @@ body {
   }
 }
 
+.ta-c {
+  text-align: center;
+}
+
 h1 {
   font-size: 72px;
-  font-weight: normal;
+  font-weight: 400;
 }
 
 h2 {
   font-size: 52px;
+}
+
+h3 {
+  font-size: 48px;
+  margin: 0;
 }
 
 .btn {
@@ -186,9 +196,9 @@ h2 {
   justify-content: space-between;
   background-color: #fff3f1;
 
-  .right {
+  .img-right {
     background: url("../img/hero-image.png") no-repeat 50% 50%;
-    flex-basis: 45%;
+    flex-basis: 50%;
     background-size: cover;
     position: relative;
 
@@ -201,7 +211,7 @@ h2 {
   }
 
   .section-inner {
-    flex-basis: 45%;
+    flex-basis: 40%;
     padding-top: $padding-vertical-xs;
     padding-bottom: $padding-vertical-xs;
   }
@@ -231,8 +241,40 @@ h2 {
       line-height: 2;
       padding: $base 34px;
       background: url("../img/list-bg.png") no-repeat;
-
     }
   }
 }
+
 /* === /HERO-IMAGE === */
+
+/* === GET-STARTED === */
+
+.section-get-started {
+  .section-inner {
+    padding-top: $padding-vertical-xs;
+    padding-bottom: $padding-vertical-xs;
+  }
+}
+
+.elements {
+  display: flex;
+  justify-content: space-between;
+
+  &__item {
+    &-title {
+      line-height: 1.5;
+
+      span {
+        font-size: $fs-lg;
+      }
+    }
+
+    &-subtitle {
+      font-size: $fs-xs;
+      font-weight: 500;
+      text-align: center;
+    }
+  }
+}
+
+/* === /GET-STARTED=== */
