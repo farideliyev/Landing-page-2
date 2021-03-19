@@ -92,6 +92,21 @@ h3 {
   &:hover {
     background: darken($cyan, 15%);
   }
+
+  &-no-bg {
+    background: none;
+    font-size: $fs-s;
+    padding: 0 0 $base*2;
+    color: $cyan;
+    border-bottom: 2px solid $cyan;
+    border-radius: 0;
+
+    &:hover {
+      background: transparent;
+      border-bottom: 2px solid #fff;
+      color: darken($cyan, 15%);
+    }
+  }
 }
 
 .form-hero {
@@ -333,3 +348,41 @@ h3 {
 }
 
 /* === /GET-STARTED=== */
+
+/* === /CHAMPION === */
+
+.section-champion {
+  position: relative;
+
+  .section-inner {
+    display: flex;
+  }
+
+  &__left {
+    position: absolute;
+    display: block;
+    top: 0;
+
+  }
+
+  &__right {
+    margin-left: auto;
+    flex-basis: 40%;
+
+    .title {
+      margin-bottom: $base*7;
+      line-height: 0.9;
+    }
+
+    .subtitle {
+      font-size: $fs-md;
+      font-weight: 300;
+      line-height: 1.5;
+      margin-bottom: $base*8;
+    }
+}
+
+}
+
+/* === /CHAMPION == */
+
