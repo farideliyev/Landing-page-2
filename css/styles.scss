@@ -353,20 +353,24 @@ h3 {
 /* === /CHAMPION === */
 
 .section-champion {
-  position: relative;
-
   .section-inner {
+    position: relative;
     display: flex;
   }
 
-  &__left {
+  .container__left {
+    content: "";
     position: absolute;
     display: block;
     top: 0;
-    margin-bottom: $base*19;
+    bottom: $base*19;
+
+    .image {
+      height: 100%;
+    }
   }
 
-  &__right {
+  .container__right {
     margin-left: auto;
     flex-basis: 40%;
 
@@ -474,3 +478,29 @@ h3 {
 
 /* === /ARTICLES == */
 
+/* === /ENGAGEMENT == */
+
+.section-engagement {
+  .container__left {
+    right: 0;
+  }
+
+  .container__right {
+    margin-left: 0;
+
+    .subtitle {
+      font-weight: normal;
+      width: 80%;
+      font-size: $fs-lg;
+    }
+  }
+}
+
+/* === /ENGAGEMENT == */
+
+/* === REVIEWS == */
+.section-reviews {
+  background-color: #f4f9f9;
+}
+
+/* === /REVIEWS == */
