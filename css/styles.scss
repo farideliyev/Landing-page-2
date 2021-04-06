@@ -28,7 +28,6 @@ $cyan: #007188;
 
 $transition: 0.15s all ease;
 
-
 /* === /VARIABLES=== */
 
 /* === COMMON === */
@@ -61,6 +60,7 @@ h1 {
 
 h2 {
   font-size: 52px;
+  margin: 0;
 }
 
 h3 {
@@ -110,7 +110,7 @@ h3 {
   }
 }
 
-.form-hero {
+.form {
   display: flex;
   position: relative;
   margin-bottom: $base*8;
@@ -119,13 +119,18 @@ h3 {
 .input {
   position: relative;
   border: none;
-  color: rgba(#000, 0.35);
+  font-weight: 500;
+  color: rgba(#000, 0);
   background-color: $color-white;
   border-radius: 200px;
   padding: $base*6 $base*9;
   flex-grow: 1;
   line-height: 2;
   box-shadow: 0 $base*6 $base*8 rgba(#000, 0.07);
+
+  &::placeholder {
+    color: rgba(#000, 0.37);
+  }
 }
 
 /* === /COMMON=== */
@@ -385,11 +390,10 @@ h3 {
       line-height: 1.5;
       margin-bottom: $base*8;
     }
-}
+  }
 }
 
 /* === /CHAMPION == */
-
 
 /* === ARTICLES == */
 
@@ -611,3 +615,56 @@ h3 {
 }
 
 /* === /REVIEWS == */
+
+/* === NEWSLETTER == */
+.section-newsletter {
+  position: relative;
+  background: url(../img/newsletter-bg.png)  no-repeat;
+  background-size: cover;
+
+  .section-inner {
+    padding-top: $padding-vertical-md;
+    padding-bottom: $padding-vertical-md;
+    text-align: center;
+  }
+
+  &__plane {
+    position: absolute;
+    content: "";
+    display: block;
+    background: url("../img/plane.svg") no-repeat;
+    width: 90px;
+    height: 90px;
+
+    &-left {
+      bottom: $base*10;
+      left: $base*10;
+      transform: rotateY(180deg);
+    }
+
+    &-right {
+      top: $base*10;
+      right: $base*10;
+    }
+  }
+
+  &__subtitle {
+    font-size: $fs-xxs;
+    letter-spacing: 2px;
+    color: #f7faff;
+    margin-bottom: $base;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    color: #ffc8c8;
+    margin-bottom: $base*11;
+  }
+
+  &__form {
+    width: 70%;
+    margin: 0 auto;
+  }
+}
+
+/* === /NEWSLETTER == */
