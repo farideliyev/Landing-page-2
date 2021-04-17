@@ -7,19 +7,42 @@
 
 /* === /MIXINS=== */
 
+/* ===  Functions === */
+
+@function stripUnit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@function rem($num) {
+  @return (stripUnit($num) / 16) * 1rem;
+}
+
+/* === / Functions === */
+
 /* === VARIABLES=== */
-$base: 4px;
+$breakpoint-sm-min: 576px;
+$breakpoint-sm-max:$breakpoint-sm-min - 1px;
+$breakpoint-md-min: 768px;
+$breakpoint-md-max: $breakpoint-md-min - 1px;
+$breakpoint-lg-min: 992px;
+$breakpoint-lg-max: $breakpoint-lg-min - 1px;
+$breakpoint-xl-min: 1200px;
+$breakpoint-xl-max: $breakpoint-xl-min - 1px;
+$breakpoint-xxl-min: 1400px;
+$breakpoint-xxl-max: $breakpoint-xxl-min -1px;
+
+$base: rem(4px);
 
 $padding-vertical-xs: $base*20;
 $padding-vertical-md: $base*30;
 $padding-vertical: $base*40;
 
-$fs-xxs: 13px;
-$fs-xs: 16px;
-$fs-s: 19px;
-$fs-md: 21px;
-$fs-lg: 24px;
-$fs-xl: 28px;
+$fs-xxs: rem(13px);
+$fs-xs: rem(16px);
+$fs-s: rem(19px);
+$fs-md: rem(21px);
+$fs-lg: rem(24px);
+$fs-xl: rem(28px);
 
 $color-primary: #041011;
 $color-secondary: #818788;
@@ -32,10 +55,20 @@ $transition: 0.15s all ease;
 
 /* === COMMON === */
 
+html {
+  @media (max-width: $breakpoint-lg-max) {
+    font-size: rem(13px);
+  }
+}
+
 body {
   @include roboto;
 
   color: $color-primary;
+}
+
+.section-outer {
+  padding: 0 $base*5;
 }
 
 .section-inner {
@@ -54,22 +87,22 @@ body {
 }
 
 h1 {
-  font-size: 72px;
+  font-size: rem(72px);
   font-weight: 400;
 }
 
 h2 {
-  font-size: 52px;
+  font-size: rem(52px);
   margin: 0;
 }
 
 h3 {
-  font-size: 48px;
+  font-size: rem(48px);
   margin: 0;
 }
 
 .btn {
-  display: inline-flex;
+  display: inline-block;
   background: $cyan;
   color: $color-white;
   font-size: $fs-xs;
@@ -83,7 +116,7 @@ h3 {
 
   &_rounded {
     border-radius: 200px;
-    padding: 18px 33px 17px;
+    padding: 18px 33px;
     position: absolute;
     right: 8px;
     top: 6px;
@@ -107,6 +140,37 @@ h3 {
       border-bottom: 2px solid #fff;
       color: darken($cyan, 15%);
     }
+  }
+
+  @media (max-width: $breakpoint-lg-max) {
+    &_rounded {
+      padding: 0 30px;
+    }
+  }
+}
+
+.btn-burger {
+  display: none;
+  width: 50px;
+  height: auto;
+  border: none;
+  background-color: transparent;
+
+  &__line {
+    display: block;
+    width: 100%;
+    margin-bottom: 7px;
+    height: 3px;
+    background-color: $color-primary;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  @media (max-width: $breakpoint-lg-max) {
+    display: block;
+    margin-left: auto;
   }
 }
 
@@ -154,6 +218,33 @@ h3 {
     align-items: center;
     margin-left: auto;
   }
+
+  @media (max-width: $breakpoint-lg-max) {
+    flex-direction: column;
+    align-items: flex-start;
+
+    .logo {
+      display: flex;
+      width: 100%;
+    }
+
+    &__inner-wrap {
+      display: none;
+      flex-direction: column;
+      align-items: flex-start;
+      margin: $base*12 0;
+      width: 100%;
+
+      .btn-wrapper {
+        width: 100%;
+        margin: 0;
+
+        .btn {
+          width: inherit;
+        }
+      }
+    }
+  }
 }
 
 .nav {
@@ -187,6 +278,7 @@ h3 {
           left: 100%;
           margin-left: 11px;
           background: url(../img/arrow-down.svg) no-repeat;
+          transition: $transition;
         }
 
         &:hover {
@@ -195,7 +287,37 @@ h3 {
 
           .arrow-down::before {
             top: 40%;
-            transition: $transition;
+          }
+        }
+      }
+    }
+
+    @media (max-width: $breakpoint-lg-max) {
+      flex-direction: column;
+      position: relative;
+
+      &__item {
+        margin-bottom: $base*10;
+
+        &-link {
+          position: static;
+          font-weight: 300;
+          font-size: $fs-md;
+        }
+
+        & + & {
+          margin-left: 0;
+        }
+
+        .arrow-down::before {
+          top: 40%;
+          right: 0;
+          margin-left: 0;
+
+          &:hover {
+            .arrow-down::before {
+              pointer-events: none;
+            }
           }
         }
       }
@@ -210,10 +332,9 @@ h3 {
 /* === /HEADER === */
 
 /* === /HERO-IMAGE === */
-//
 .section-hero-image {
+  padding: 0;
   display: flex;
-  justify-content: space-between;
   background-color: #fff3f1;
 
   .img-right {
@@ -261,6 +382,35 @@ h3 {
       line-height: 2;
       padding: $base 34px;
       background: url("../img/list-bg.png") no-repeat;
+    }
+  }
+
+  @media (max-width: $breakpoint-lg-max) {
+    flex-direction: column-reverse;
+
+    &__content {
+      padding: 20px;
+    }
+
+    &__title {
+      width: 70%;
+      margin: 0 auto $base*10;
+    }
+
+    &__subtitle {
+      font-size: $fs-md;
+      line-height: 1.5;
+      margin-bottom: $base*8;
+    }
+
+    .img-right {
+      min-height: 360px;
+      background-position: top center;
+      background-size: cover;
+
+      img {
+        display: none;
+      }
     }
   }
 }
