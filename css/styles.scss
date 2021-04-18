@@ -57,7 +57,11 @@ $transition: 0.15s all ease;
 
 html {
   @media (max-width: $breakpoint-lg-max) {
-    font-size: rem(13px);
+    font-size: rem(14px);
+  }
+
+  @media (max-width: $breakpoint-md-max) {
+    font-size: rem(12px);
   }
 }
 
@@ -395,6 +399,7 @@ h3 {
     &__title {
       width: 70%;
       margin: 0 auto $base*10;
+      text-align: center;
     }
 
     &__subtitle {
@@ -405,7 +410,7 @@ h3 {
 
     .img-right {
       min-height: 360px;
-      background-position: top center;
+      background-position: 0 10%;
       background-size: cover;
 
       img {
@@ -446,6 +451,15 @@ h3 {
       text-align: center;
     }
   }
+
+  @media (max-width: $breakpoint-md-max) {
+    flex-direction: column;
+    align-items: center;
+
+    &__item:not(:last-child) {
+      margin-bottom: $base*10;
+    }
+  }
 }
 
 .promo {
@@ -467,7 +481,7 @@ h3 {
 
   &__title {
     margin: 0 auto $base*17;
-    width: 50%;
+    width: 90%;
   }
 
   &__list {
@@ -501,6 +515,22 @@ h3 {
       }
     }
   }
+
+  @media (max-width: $breakpoint-md-max) {
+    &__list {
+      flex-direction: column;
+
+      &-link {
+        margin-bottom: $base*10;
+      }
+    }
+  }
+
+  @media (min-width: $breakpoint-sm-min) {
+    &__title {
+      width: 60%;
+    }
+  }
 }
 
 /* === /GET-STARTED=== */
@@ -509,25 +539,26 @@ h3 {
 
 .section-champion {
   .section-inner {
+    padding-top: $padding-vertical-xs;
+    padding-bottom: $padding-vertical-xs;
     position: relative;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .container__left {
-    content: "";
-    position: absolute;
-    display: block;
-    top: 0;
-    bottom: $base*19;
+    flex-basis: 45%;
 
     .image {
-      height: 100%;
+      width: 100%;
     }
   }
 
   .container__right {
-    margin-left: auto;
-    flex-basis: 40%;
+    flex-basis: 45%;
+    padding: 0 30px;
+    align-items: center;
 
     .title {
       margin-bottom: $base*7;
@@ -539,6 +570,24 @@ h3 {
       font-weight: 300;
       line-height: 1.5;
       margin-bottom: $base*8;
+    }
+
+    @media (max-width: $breakpoint-lg-max) {
+      flex-basis: 50%;
+    }
+  }
+
+  @media (max-width: $breakpoint-md-max) {
+    .section-inner {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container__left {
+      margin-bottom: $base*10;
+    }
+
+    .container__right {
     }
   }
 }
