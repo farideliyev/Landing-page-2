@@ -57,11 +57,15 @@ $transition: 0.15s all ease;
 
 html {
   @media (max-width: $breakpoint-lg-max) {
-    font-size: rem(14px);
+    font-size: rem(15px);
   }
 
   @media (max-width: $breakpoint-md-max) {
-    font-size: rem(12px);
+    font-size: rem(13px);
+  }
+
+  @media (max-width: $breakpoint-sm-max) {
+    font-size: rem(11px);
   }
 }
 
@@ -98,6 +102,10 @@ h1 {
 h2 {
   font-size: rem(52px);
   margin: 0;
+
+  /*@media (max-width: $breakpoint-sm-max) {
+    font-size: rem(40px);
+  }*/
 }
 
 h3 {
@@ -586,9 +594,6 @@ h3 {
     .container__left {
       margin-bottom: $base*10;
     }
-
-    .container__right {
-    }
   }
 }
 
@@ -601,18 +606,24 @@ h3 {
 
   .section-inner {
     margin: 0 auto;
+
+    h2 {
+      margin-bottom: $base*7;
+    }
   }
 }
 
 .card-wrapper {
   display: flex;
-  justify-content: space-between;
   margin-bottom: $base*15;
 
   &--item {
-    flex-basis: 30%;
-    //border-radius: 12px;
+    flex-basis: 33%;
     transition: $transition;
+
+    & + & {
+      margin-left: $base*8;
+    }
 
     .card-item {
       &--image {
@@ -624,6 +635,8 @@ h3 {
         img {
           display: block;
           object-fit: cover;
+          width: 100%;
+          height: 100%;
           transition: $transition;
         }
       }
@@ -675,6 +688,29 @@ h3 {
       img {
         transform: scale(1.1);
       }
+    }
+  }
+
+  @media (max-width: $breakpoint-md-max) {
+    flex-direction: column;
+    align-items: center;
+
+    &--item {
+      width: 70%;
+      margin-bottom: $base*8;
+      flex-basis: 15%;
+
+      .card-item {
+        &--image {
+          height: 300px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint-sm-max) {
+    &--item {
+      width: 100%;
     }
   }
 }
