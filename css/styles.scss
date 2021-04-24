@@ -698,12 +698,9 @@ h3 {
     &--item {
       width: 70%;
       margin-bottom: $base*8;
-      flex-basis: 15%;
 
-      .card-item {
-        &--image {
-          height: 300px;
-        }
+      & + & {
+        margin-left: 0;
       }
     }
   }
