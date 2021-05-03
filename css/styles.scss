@@ -549,7 +549,6 @@ h3 {
   .section-inner {
     padding-top: $padding-vertical-xs;
     padding-bottom: $padding-vertical-xs;
-    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -714,20 +713,27 @@ h3 {
 
 /* === /ARTICLES == */
 
-/* === /ENGAGEMENT == */
+/* === ENGAGEMENT == */
 
 .section-engagement {
-  .container__left {
-    right: 0;
+  .section-inner {
+    padding-top: 0;
   }
 
   .container__right {
-    margin-left: 0;
+    margin-right: 0;
 
     .subtitle {
       font-weight: normal;
       width: 80%;
       font-size: $fs-lg;
+    }
+  }
+
+  @media (max-width: $breakpoint-md-max) {
+    .section-inner {
+      flex-direction: column-reverse;
+      
     }
   }
 }
@@ -738,7 +744,7 @@ h3 {
 .section-reviews {
   background-color: #f4f9f9;
 
-  h2 {
+  .reviews-heading {
     width: 35%;
     margin: 0 auto $base*20;
   }
@@ -774,7 +780,6 @@ h3 {
 
     &:nth-child(1) {
       background: url("../img/reviews-bg-1.svg") no-repeat;
-      background-size: cover;
     }
 
     &:nth-child(2) {
@@ -783,8 +788,8 @@ h3 {
 
     &:nth-child(3) {
       background: url("../img/reviews-bg-3.svg") no-repeat;
-      background-size: cover;
     }
+
 
     &--big {
       grid-column: 1/2;
@@ -844,6 +849,15 @@ h3 {
       }
     }
   }
+
+  & > &__content {
+    background-size: cover;
+  }
+
+  @media (max-width: $breakpoint-md-max) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 /* === /REVIEWS == */
@@ -897,6 +911,30 @@ h3 {
     width: 70%;
     margin: 0 auto;
   }
+
+  @media (max-width: $breakpoint-md-max) {
+    .section-inner {
+      padding-top: $padding-vertical;
+      padding-bottom: $padding-vertical;
+    }
+  }
+  @media (max-width: $breakpoint-sm-max) {
+    &__plane {
+      &-right {
+        top: $base;
+        right: $base;
+      }
+
+      &-left {
+        bottom: $base;
+        left: $base;
+      }
+    }
+
+    &__form {
+      width: 100%;
+    }
+  }
 }
 
 /* === /NEWSLETTER == */
@@ -921,7 +959,7 @@ h3 {
       margin: 0;
 
       .category {
-        font-size: 13px;
+        font-size: $base*3;
       }
 
       .link {
@@ -944,19 +982,40 @@ h3 {
 
     &-sitemap {
       .link {
-        font-size: 18px;
+        font-size: $base*4.5;
       }
     }
 
     &-social {
       .link {
-        font-size: 19px;
+        font-size: $base*5;
       }
     }
 
     &-get-app {
       .link {
-        font-size: 20px;
+        font-size: $base*5;
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint-md-max) {
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+
+    &__logo {
+      margin-bottom: $base*7;
+    }
+
+    &__nav {
+      margin-left: 0;
+      flex-direction: column;
+
+      &-sitemap,
+      &-social,
+      &-get-app {
+        margin-bottom: $base*8;
       }
     }
   }
@@ -964,6 +1023,10 @@ h3 {
 
 .additional {
   margin: $base*30 0 0 $base*68.75;
+
+  @media (max-width: $breakpoint-md-max) {
+    margin: $base*15 0 0 10%;
+  }
 }
 
 .copyright {
@@ -976,6 +1039,11 @@ h3 {
   &__link {
     text-decoration: none;
     color: #818788;
+  }
+
+  @media (max-width: $breakpoint-md-max) {
+    display: flex;
+    flex-direction: column;
   }
 }
 
