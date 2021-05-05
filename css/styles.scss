@@ -212,6 +212,28 @@ h3 {
 /* === /COMMON=== */
 
 /* === HEADER === */
+.dropdown {
+  display: none;
+  position: absolute;
+  min-width: 250px;
+  border-radius: 5px;
+  z-index: 10;
+  list-style: none;
+  margin: 0;
+  padding: 35px 0 0 30px;
+  background-color: #fff;
+
+  &__item {
+    margin-bottom: $base*9;
+
+    a {
+      text-decoration: none;
+      color: $color-primary;
+      font-size: $fs-xs;
+      font-weight: 700;
+    }
+  }
+}
 
 .section-header {
   box-shadow: $base/2 $base/2 $base rgba(#111237, 0.05);
@@ -273,6 +295,7 @@ h3 {
       }
 
       &-link {
+        display: block;
         text-decoration: none;
         color: $color-primary;
         font-size: $fs-xs;
@@ -299,6 +322,10 @@ h3 {
 
           .arrow-down::before {
             top: 40%;
+          }
+
+          .dropdown {
+            display: block;
           }
         }
       }
@@ -340,6 +367,7 @@ h3 {
 .btn-wrapper {
   margin-left: $base*10;
 }
+
 
 /* === /HEADER === */
 
